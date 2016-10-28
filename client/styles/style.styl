@@ -11,6 +11,14 @@ body
   max-width 1200px
   margin 0 auto
 
+.recipe-grid
+  display flex
+  flex-wrap wrap
+  max-width 1200px
+  margin 0 auto
+  border 2px solid gold
+  background mistyrose
+
 .grid-figure
   flex-basis calc(33.333% - 4rem)
   flex-grow 1
@@ -21,6 +29,27 @@ body
   background white
   box-shadow 0 0 0 5px rgba(0,0,0,0.03);
   position relative
+
+.single-recipe
+  @extend .grid-figure
+  max-width 900px
+  margin 0 auto
+  display flex
+  background mistyrose
+  .grid-figure
+    box-shadow none
+    margin 0 2rem 0 0 
+    border 0
+    padding 0
+    flex 1 0 60%
+    max-width 60%
+  .comments
+    flex 1 0 40%
+    max-width 40%
+  .grid-recipe
+    width 100%
+    margin 0
+
 
 .single-photo
   @extend .grid-figure
@@ -47,6 +76,13 @@ body
   margin-left -2rem
   margin-top -2rem
   max-width none
+
+.grid-recipe
+  width calc(100% + 4rem)
+  margin-left -2rem
+  margin-top -2rem
+  max-width none
+
 
 // Comments
 .remove-comment
