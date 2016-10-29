@@ -6,18 +6,20 @@ import {browserHistory} from 'react-router';
 import rootReducer from './reducers/index';
 
 import comments from './data/comments';
-import posts from './data/posts';
+import recipes from './data/recipes';
 
 //create an object for the default data
 const defaultState = {
-  posts,
+  recipes,
   comments
 };
 
 // create store
-export const store = createStore(rootReducer, defaultState);
+const store = createStore(rootReducer, defaultState);
 
 export const history = syncHistoryWithStore(browserHistory, store);
+
+export default store;
 
 
 
