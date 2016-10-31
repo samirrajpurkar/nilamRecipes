@@ -5,20 +5,26 @@ import {render} from 'react-dom';
 import css from './styles/style.styl';
 
 //Import React components
-import Main from './components/Main';
+import App from './components/App';
 import Single from './components/Single';
 import RecipeGrid from './components/RecipeGrid';
 
 //Import React Router deps
 import {Router, Route, IndexRoute,browserHistory} from 'react-router';
 
+import {Provider} from 'react-redux';
+import store, {history} from './store';
+
+
 const router = (
-    <Router history={browserHistory}>
-      <Route path="/" component={Main}>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}>
         <IndexRoute component={RecipeGrid}></IndexRoute>
         <Route path="view/:recipeId" component={Single}></Route>
       </Route>
     </Router>
+  </Provider>
   )
 
 render(router, document.getElementById('root'));
