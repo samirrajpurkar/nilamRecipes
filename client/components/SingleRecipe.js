@@ -2,7 +2,12 @@ import React from 'React';
 import {Link} from 'react-router';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
+
 const SingleRecipe = React.createClass({
+  getImage(src) {
+    return require('../../images/'+src)
+  },
+
   render() {
     const {recipe, i, comments} = this.props;
 
@@ -12,7 +17,7 @@ const SingleRecipe = React.createClass({
         <div className="grid-recipe-wrap">
           
           <Link to={'/view/${recipe.code}'}>
-            <img src={recipe.display_src} alt={recipe.caption} />
+            <img src={this.getImage(recipe.display_src)} alt={recipe.caption} />
           </Link>
 
           <CSSTransitionGroup transitionName="like" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
